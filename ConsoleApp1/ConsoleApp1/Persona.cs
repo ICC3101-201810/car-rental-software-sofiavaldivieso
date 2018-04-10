@@ -6,29 +6,30 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Persona : Vehiculo
+    public class Persona: Cliente
     {
-        String tipo_auto;
         String licencia_conducir;
-        String vehiculo_licencia;
+        String solicitud;
+        string rut;
+        string organizacion;
+        string institucion;
 
-        public Persona(string tipo_auto, string licencia_conducir, string vehiculo_licencia) : base(tipo_auto)
+        public Persona( string rut, string organizacion, string institucion, string licencia_conducir, String solicitud): base(rut, organizacion, institucion)
         {
-            this.tipo_auto = tipo_auto;
-            this.Licencia_conducir = licencia_conducir;
-            this.vehiculo_licencia = vehiculo_licencia;
+            this.licencia_conducir = licencia_conducir;
+            this.solicitud = solicitud;
+            this.rut = rut;
+            this.organizacion = organizacion;
+            this.institucion = institucion;
         }
 
-        public string Licencia_conducir
+        public bool chek_Licencia_conducir(Persona persona)
         {
-            get => licencia_conducir;
-            set
+            if (persona.licencia_conducir == solicitud )
             {
-                if (vehiculo_licencia == tipo_auto)
-                {
-                    licencia_conducir = tipo_auto;
-                }
+                return true;
             }
+            return false;
         }
     }
 }
